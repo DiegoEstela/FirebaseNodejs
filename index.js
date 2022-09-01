@@ -41,4 +41,12 @@ const readById = async () =>{
   console.log(_data)
 }
 
-readById()
+const updateById = async () =>{
+  let id = "WaLQZLBQ8lv01FlVn6kV"
+  const doc = user.doc(`${id}`)
+  const _user = await doc.update({age: 60})
+  console.log(_user)
+}
+
+updateById()
+
