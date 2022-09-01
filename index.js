@@ -9,3 +9,12 @@ admin.initializeApp({
 
 const db = admin.firestore()
 const user = db.collection("users")
+
+const crearUsuario = async() =>{
+  const doc = user.doc()
+  const result =  await doc.create({name: "ezequiel", age: 30})
+  console.log(result)
+
+}
+
+crearUsuario()
