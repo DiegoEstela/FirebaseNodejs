@@ -1,7 +1,6 @@
 const admin = require("firebase-admin");
-const dotenv = require("dotenv")
-dotenv.config()
-const serviceAccount = require("./config.js");
+require("dotenv").config()
+const serviceAccount = require("./db/config.js");
 
 
 admin.initializeApp({
@@ -14,9 +13,9 @@ const user = db.collection("users")
 
 
 // CREATE A NEW USER
-const createUser = async() =>{
+const createUser = async(body) =>{
   const doc = user.doc()
-  const result =  await doc.create({name: "ezequiel", age: 30})
+  const result =  await doc.create(body)
   console.log(result)
 
 }

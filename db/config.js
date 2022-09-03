@@ -14,4 +14,4 @@ const serviceAccount = {
     client_x509_cert_url:process.env.CLIENT_X509_CRET_URL, 
 }
 
-exports.modules = serviceAccount
+module.exports = serviceAccount
