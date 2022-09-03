@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", async (req, res)=>{
     const allUser = await api.readAll()
-    res(allUser)
+    res.send(allUser)
 })
 
 app.post("/newUser", async (req, res)=>{
