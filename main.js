@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT ||  8080
 const db = require("./db/db.js")
 const user = db.collection("users")
 const FirebaseUser = require("./classFirebase")
