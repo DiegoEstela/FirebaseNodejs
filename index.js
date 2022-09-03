@@ -1,10 +1,12 @@
-var admin = require("firebase-admin");
+const admin = require("firebase-admin");
+const dotenv = require("dotenv")
+dotenv.config()
+const serviceAccount = require("./config.js");
 
-var serviceAccount = require("./node_firebase.json");
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://nodediegoestela.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount.modules),
+  databaseURL: process.env.DATABASEURL
 });
 
 const db = admin.firestore()
@@ -48,5 +50,5 @@ const updateById = async () =>{
   console.log(_user)
 }
 
-updateById()
+readAll()
 
