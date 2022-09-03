@@ -9,7 +9,14 @@ const api = new FirebaseUser(user)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 app.get("/", async (req, res)=>{
+
+    res.send("Bienvenido a mi api con node.js")
+})
+
+
+app.get("/allUser", async (req, res)=>{
     const allUser = await api.readAll()
     res.send(allUser)
 })
