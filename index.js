@@ -10,9 +10,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", async (req, res)=>{
-    res.send("hola")
+    const allUser = await api.readAll()
+    res.send(allUser)
 })
 
+app.post("/newUser", async (req, res)=>{
+    try{
+        const user = req.body.lala
+        await api.createUser(user)
+        res.send(`el usuario ${user?.name} ha sido creado con exito`)
+    }catch(err){
+        console.log("por favor verificar los datos")
+    }
+   
+})
 
 
 app.listen(PORT, ()=>{
